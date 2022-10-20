@@ -95,7 +95,7 @@ public class PatrimonyController {
 	public ResponseEntity<String> upload(@RequestParam MultipartFile file) throws IOException {
 
 		try {
-			uploadService.uplo	ad(file);
+			uploadService.upload(file);
 			return ResponseEntity.ok().build();
 		} catch (Exception e) {
 			return new ResponseEntity(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
