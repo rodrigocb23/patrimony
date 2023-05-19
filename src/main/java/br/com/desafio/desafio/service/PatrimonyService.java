@@ -29,10 +29,10 @@ public class PatrimonyService {
         return listPatrimonys;
     }
 
-    private List<PatrimonyResponseDTO> createPatrimonyResponseList(List<PatrimonyEntity> listPatrimony) {
+    private List<PatrimonyResponseDTO> createPatrimonyResponseList(List<PatrimonyEntity> listPatrimonys) {
         List<PatrimonyResponseDTO> listPatrimony = new ArrayList<>();
 
-        listPatrimony.stream().forEach(patrimony -> {
+        listPatrimonys.stream().forEach(patrimony -> {
             PatrimonyResponseDTO response = new PatrimonyResponseDTO();
             response.setTomboId(patrimony.getNumeroTombo());
             response.setMarcaId(patrimony.getMarcaId());
