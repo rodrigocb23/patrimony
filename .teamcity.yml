@@ -1,9 +1,33 @@
 name: Patrimony
 jobs:
   Job1:
-    name: Job 1
+    name: maven clean
     steps:
       - type: maven
         goals: clean
+        docker-image: eclipse-temurin:latest
     runs-on: Ubuntu-22.04-Small-Arm64
     enable-dependency-cache: true
+  Job2:
+    name: Quality Gate backend
+    runs-on: Linux-Medium
+    steps:
+      - type: script
+        script-content: echo 'Qualidade do codigo backend'
+    dependencies:
+      - Job1
+  BuildFrontEnd:
+    name: Build front end
+    runs-on: Linux-Medium
+    steps:
+      - type: script
+        script-content: echo 'Build front end'
+  Deploy:
+    name: Deploy
+    runs-on: Linux-Medium
+    steps:
+      - type: script
+        script-content: echo 'deploy'
+    dependencies:
+      - Job2
+      - BuildFrontEnd
