@@ -4,10 +4,12 @@ jobs:
     name: Job 1
     steps:
       - type: maven
-        working-directory: mvn clean
+        working-directory: ''
         pom-location: ''
         maven-version: bundled_3_9
         local-repo-scope: maven-default
+        runner-arguments: mvn clean
+        is-incremental: ''
     runs-on: Linux-Medium
     enable-dependency-cache: true
   Job2:
