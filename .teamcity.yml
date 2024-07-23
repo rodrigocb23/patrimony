@@ -4,18 +4,10 @@ jobs:
     name: maven clean
     steps:
       - type: maven
-        goals: clean
+        goals: install
         docker-image: eclipse-temurin:latest
     runs-on: Ubuntu-22.04-Small-Arm64
     enable-dependency-cache: true
-  Job2:
-    name: Quality Gate backend
-    runs-on: Linux-Medium
-    steps:
-      - type: script
-        script-content: echo 'Qualidade do codigo backend'
-    dependencies:
-      - Job1
   BuildFrontEnd:
     name: Build front end
     runs-on: Linux-Medium
