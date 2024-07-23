@@ -1,0 +1,19 @@
+name: Patrimony
+jobs:
+  Job1:
+    name: Job 1
+    steps:
+      - type: maven
+        working-directory: mvn clean
+        pom-location: ''
+        maven-version: bundled_3_9
+        local-repo-scope: maven-default
+    runs-on: Linux-Medium
+    enable-dependency-cache: true
+  Job2:
+    name: Job 2
+    runs-on: Linux-Medium
+    steps:
+      - type: maven
+        working-directory: mvn copile
+    enable-dependency-cache: true
